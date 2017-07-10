@@ -4,8 +4,8 @@
   "description": "Build a vending machine API to track items, prices and purchases",
   "main": "index.js",
   "scripts": {
-    "test": 'NODE_ENV=test mocha',
-    "start": 'NODE_ENV=dev node app.js'
+    "test": "NODE_ENV=test mocha",
+    "start": "NODE_ENV=dev node app.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/b-r-broge/tiy-vending-machine-api/issues"
   },
-  "homepage": "https://github.com/b-r-broge/tiy-vending-machine-api#readme"
+  "homepage": "https://github.com/b-r-broge/tiy-vending-machine-api#readme",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "express": "^4.15.3",
+    "mocha": "^3.4.2",
+    "mongodb": "^2.2.30",
+    "mongoose": "^4.11.1",
+    "supertest": "^3.0.0"
+  }
 }

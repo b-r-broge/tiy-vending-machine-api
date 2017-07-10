@@ -1,8 +1,8 @@
 {
     "dev": {
-        "mongoUrl": "mongodb://localhost:27017/vending"
+        "mongoUrl": "mongodb://localhost:27017/purchase"
     },
     "test": {
-        "mongoUrl": "mongodb://localhost:27017/vendingTest"
+        "mongoUrl": "mongodb://localhost:27017/purchaseTest"
     }
 }

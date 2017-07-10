@@ -3,16 +3,18 @@ const app = express();
 
 const mongoose = require('mongoose');
 const Vending = require('./models/vending');
-const Purchase = require('./models/purchase');
+const Purchase = require('./models/purchases');
 
-const env = proces.env.NODE_ENV || "dev";
+const env = process.env.NODE_ENV || "dev";
 const config = require('./config/config.json')[env]
 
 mongoose.connect(config.mongoUrl);
 
-const vendingRoutes = require('./routes/vending');
+const vendorRoutes = require('./routes/vendor');
+const customerRoutes = require('./routes/customer');
 
-app.use(vendingRoutes);
+app.use(vendorRoutes);
+app.use(customerRoutes);
 
 if (require.main === module) {
     app.listen(3000, function () {

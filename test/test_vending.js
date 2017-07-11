@@ -33,7 +33,7 @@ describe('POST /api/vendor/items', function () {
   })
   it('should add a pop tart to the database', function (done) {
     request(app).post('/api/vendor/items')
-    .send({"name": "pop tart", "price": 110, "inStock": 1})
+    .send({"name": "Pop Tarts", "price": 110, "inStock": 1})
     .expect(200)
     .expect({ "n": 1, "nModified": 1, "ok": 1 })
     .end(done)
@@ -58,9 +58,24 @@ describe('GET /api/customer/items', function () {
       }, {
         "price" : 110,
         "inStock" : 1,
-        "name" : "pop tart"
+        "name" : "Pop Tarts"
       }]
     })
     .end(done)
+  })
+})
+
+describe('POST /api/customer/items/:itemId/purchases', function() {
+  it('should allow you to purchase an item with cents included', function (done) {
+    request(app).post('/api/customer/items/Pop Tarts/purchases')
+      .send({"Payment": 110})
+      .expect(200)
+      .expect({
+        "purchase": "success",
+        "item": "Pop Tarts",
+        "change": 0,
+        "inStock": 0
+      })
+      .end(done)
   })
 })
